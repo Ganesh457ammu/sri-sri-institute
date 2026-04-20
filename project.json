@@ -1,0 +1,27 @@
+{
+  "overview": "A modern, multi-page website for Sri Sri Institute — an educational coaching centre for government competitive exams. Features a 3D animated hero, course catalog, enquiry form with backend storage, and a password-protected admin dashboard for managing student enquiries.",
+  "features": [
+    "3D animated hero with React Three Fiber floating shapes and particles",
+    "6 full pages: Home, About, Courses, Testimonials, Enquiry, and Contact",
+    "Enquiry form with Motoko backend persistence and success confirmation",
+    "Password-protected admin dashboard showing all submitted enquiries",
+    "Sticky navbar with mobile hamburger menu",
+    "Glassmorphic card design with deep blue and gold color theme",
+    "Testimonials carousel and grid layout",
+    "Faculty grid and achievements timeline on About page",
+    "Five course programs: Banking, SSC, Railways, State Exams, Defence",
+    "WhatsApp floating button and back-to-top button on all pages",
+    "SEO meta tags and smooth scroll animations"
+  ],
+  "category": "education",
+  "tags": [
+    "education",
+    "coaching",
+    "government-exams",
+    "landing-page",
+    "enquiry-form",
+    "react-three-fiber",
+    "glassmorphism"
+  ],
+  "last_updated": "2026-04-09T16:41:04.109Z"
+}

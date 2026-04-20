@@ -1,0 +1,23 @@
+// Version: 1.0.0
+type Enquiry__582474784 =
+  {
+    city : Text;
+    course : Text;
+    email : Text;
+    id : Nat;
+    message : Text;
+    name : Text;
+    phone : Text;
+    timestamp : Int
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+actor {
+  stable enquiries :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Enquiry__582474784]];
+      var elementIndex : Nat__490723111
+    };
+  stable var nextId : Nat
+};

@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk";
+    --font-body: "Plus Jakarta Sans";
+    --font-mono: "Geist Mono";
+    --radius: 0.75rem;
+
+    /* Light mode – crisp white base with deep blue primary */
+    --background: 0.98 0.005 250;
+    --foreground: 0.18 0.04 262;
+    --card: 0.99 0.003 250;
+    --card-foreground: 0.18 0.04 262;
+    --popover: 0.99 0.003 250;
+    --popover-foreground: 0.18 0.04 262;
+
+    /* Deep blue #1e3a5f ≈ oklch(0.35 0.10 262) */
+    --primary: 0.35 0.1 262;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.93 0.02 255;
+    --secondary-foreground: 0.35 0.1 262;
+    --muted: 0.93 0.015 255;
+    --muted-foreground: 0.52 0.04 262;
+
+    /* Gold #f5a623 ≈ oklch(0.74 0.17 70) */
+    --accent: 0.74 0.17 70;
+    --accent-foreground: 0.15 0.02 262;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.88 0.01 260;
+    --input: 0.92 0.01 260;
+    --ring: 0.74 0.17 70;
+
+    --chart-1: 0.74 0.17 70;
+    --chart-2: 0.35 0.1 262;
+    --chart-3: 0.65 0.15 30;
+    --chart-4: 0.72 0.18 40;
+    --chart-5: 0.58 0.14 260;
+
+    --sidebar: 0.35 0.1 262;
+    --sidebar-foreground: 0.98 0 0;
+    --sidebar-primary: 0.74 0.17 70;
+    --sidebar-primary-foreground: 0.15 0.02 262;
+    --sidebar-accent: 0.93 0.02 255;
+    --sidebar-accent-foreground: 0.35 0.1 262;
+    --sidebar-border: 0.3 0.07 262;
+    --sidebar-ring: 0.74 0.17 70;
+
+    /* Raw hex values for glassmorphism (cannot use oklch() in rgba) */
+    --blue-raw: 30, 58, 95;
+    --gold-raw: 245, 166, 35;
+    --white-raw: 255, 255, 255;
+  }
+
+  .dark {
+    --background: 0.14 0.04 262;
+    --foreground: 0.96 0 0;
+    --card: 0.2 0.04 262;
+    --card-foreground: 0.96 0 0;
+    --popover: 0.24 0.03 262;
+    --popover-foreground: 0.96 0 0;
+
+    --primary: 0.74 0.17 70;
+    --primary-foreground: 0.14 0.04 262;
+
+    --secondary: 0.26 0.04 262;
+    --secondary-foreground: 0.88 0.02 70;
+    --muted: 0.24 0.03 262;
+    --muted-foreground: 0.62 0.03 262;
+
+    --accent: 0.8 0.19 70;
+    --accent-foreground: 0.14 0.04 262;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.96 0 0;
+
+    --border: 0.3 0.04 262;
+    --input: 0.3 0.04 262;
+    --ring: 0.8 0.19 70;
+
+    --chart-1: 0.8 0.19 70;
+    --chart-2: 0.74 0.17 262;
+    --chart-3: 0.85 0.18 30;
+    --chart-4: 0.88 0.2 40;
+    --chart-5: 0.78 0.16 260;
+
+    --sidebar: 0.18 0.04 262;
+    --sidebar-foreground: 0.96 0 0;
+    --sidebar-primary: 0.8 0.19 70;
+    --sidebar-primary-foreground: 0.14 0.04 262;
+    --sidebar-accent: 0.3 0.04 262;
+    --sidebar-accent-foreground: 0.88 0.02 70;
+    --sidebar-border: 0.26 0.03 262;
+    --sidebar-ring: 0.8 0.19 70;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  /* Transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Glassmorphism — uses raw rgba to avoid invalid opacity modifier syntax */
+  .glass-card {
+    background: rgba(var(--white-raw), 0.12);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(var(--white-raw), 0.2);
+    box-shadow: 0 8px 32px rgba(var(--blue-raw), 0.12);
+  }
+
+  .glass-card-dark {
+    background: rgba(var(--blue-raw), 0.5);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(var(--white-raw), 0.14);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .glass-card-light {
+    background: rgba(var(--white-raw), 0.8);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    border: 1px solid rgba(var(--white-raw), 0.6);
+    box-shadow: 0 4px 24px rgba(var(--blue-raw), 0.08);
+  }
+
+  .glass-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-hover:hover {
+    background: rgba(var(--white-raw), 0.2);
+    border-color: rgba(var(--gold-raw), 0.4);
+    box-shadow: 0 12px 40px rgba(var(--blue-raw), 0.18);
+    transform: translateY(-2px);
+  }
+
+  /* Hero deep blue background */
+  .hero-bg {
+    background: linear-gradient(135deg, #1e3a5f 0%, #0f2340 50%, #1a3357 100%);
+  }
+
+  /* Gold accent gradient */
+  .gold-gradient {
+    background: linear-gradient(135deg, #f5a623 0%, #e8941a 100%);
+  }
+
+  /* Gold text */
+  .text-gold {
+    color: #f5a623;
+  }
+
+  /* Section alternating backgrounds */
+  .section-light {
+    @apply bg-background;
+  }
+
+  .section-muted {
+    background: rgba(var(--blue-raw), 0.03);
+  }
+
+  /* Shadow utilities */
+  .shadow-glass {
+    box-shadow: 0 8px 32px rgba(var(--blue-raw), 0.1);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 20px 60px rgba(var(--blue-raw), 0.15);
+  }
+
+  /* Gold outline button */
+  .btn-gold-outline {
+    border: 2px solid #f5a623;
+    color: #f5a623;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-gold-outline:hover {
+    background: #f5a623;
+    color: #1e3a5f;
+  }
+
+  /* Stat bar separator */
+  .stat-divider {
+    background: rgba(var(--white-raw), 0.2);
+  }
+
+  /* Animate float */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Scroll target offset */
+  .scroll-mt-20 {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gd.woff2")
+    format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("https://fonts.gstatic.com/s/plusjakartasans/v8/LDIbaomQNQcsA88c7O9yZ4KMCoOg4IA6-91aHEjcWuA_KU7NShXUEKi4Rw.woff2")
+    format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}

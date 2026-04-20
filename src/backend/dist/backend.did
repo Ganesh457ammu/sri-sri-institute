@@ -1,0 +1,17 @@
+type Enquiry = 
+ record {
+   city: text;
+   course: text;
+   email: text;
+   id: nat;
+   message: text;
+   name: text;
+   phone: text;
+   timestamp: int;
+ };
+service : {
+  getEnquiries: () -> (vec Enquiry) query;
+  getEnquiryCount: () -> (nat) query;
+  submitEnquiry: (name: text, phone: text, email: text, course: text, city:
+   text, message: text) -> (nat);
+}
