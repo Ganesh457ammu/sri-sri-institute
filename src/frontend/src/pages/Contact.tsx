@@ -18,14 +18,14 @@ const contactItems = [
   {
     icon: MapPin,
     label: "Address",
-    value: "123 Education Street, Hyderabad, Telangana 500001",
-    href: "https://maps.google.com/?q=Hyderabad+Telangana",
+    value: "Ganta Street, Vizianagaram, Andhra Pradesh 535525",
+    href: "https://maps.google.com/?q=Vizianagaram+Andhra Pradesh",
   },
   {
     icon: Phone,
     label: "Phone",
     value: "+91 98765 43210",
-    href: "tel:+919876543210",
+    href: "tel:+917680933980",
   },
   {
     icon: Mail,
